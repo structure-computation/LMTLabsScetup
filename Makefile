@@ -12,44 +12,35 @@ LIBRARIES = \
 	Celo \
 	Sipe \
 	PrepArg \
-	EcosystemScience \
-	ScwalPlugins \
-	computation-lab	
+	LMTLabs \
+	LMTPlugins
 	
 BRANCHES = \
-	EcosystemScience,master \
+	LMTLabs,master \
 	Soja,master \
 	Soda,master \
 	Celo,master \
 	Sipe,master \
 	PrepArg,master \
-	ScwalPlugins,master \
-	computation-lab \
+	LMTPlugins,master \
 	scills,master
 
 	
 	
 SYM_LINKS = \
-	EcosystemScience,Javascript \
-	computation-lab,Ruby \
+	LMTLabs,Javascript \
 	ScwalPlugins,ScwalPlugins \
-	Soja,software_library/EcosystemScience/ext/Soja \
-	Soda,software_library/EcosystemScience/ext/Soda \
+	Soja,software_library/LMTLabs/ext/Soja \
+	Soda,software_library/LMTLabs/ext/Soda \
 	Celo,software_library/Soda/ext/Celo \
 	Sipe,software_library/Soda/ext/Sipe \
 	PrepArg,software_library/Soda/ext/PrepArg \
 	scult/src/GEOMETRY,software_library/scills/src/GEOMETRY \
 	scult/src/COMPUTE,software_library/scills/src/COMPUTE \
 	scult/src/UTILS,software_library/scills/src/UTILS \
-	scills/src,software_library/ScwalPlugins/Scills3DPlugin/ServerPlugin/src_scills \
+	scills/src,software_library/LMTPlugins/Scills3DPlugin/ServerPlugin/src_scills \
 	LMTpp,software_library/scult/LMT \
-	LMTpp,software_library/scills/LMT \
-	LMTpp,software_library/ScwalPlugins/GmshPlugin/ServerPlugin/LMT \
-	LMTpp,software_library/ScwalPlugins/Scills3DPlugin/ServerPlugin/LMT \
-	LMTpp,software_library/ScwalPlugins/Scult3DPlugin/ServerPlugin/LMT \
-	LMTpp,software_library/ScwalPlugins/CorreliPlugin/ServerPlugin/LMT \
-	LMTpp,software_library/ScwalPlugins/GlobalManagerPlugin/ServerPlugin/LMT \
-	dic,software_library/ScwalPlugins/CorreliPlugin/ServerPlugin/dic
+	LMTpp,software_library/scills/LMT
 
 LD = \
 	libfftw3-dev \
@@ -73,7 +64,7 @@ LD = \
 	libqt4-core \
 	libqt4-dev \
 	qt4-qmake \
-	libhdf5-serial-dev \
+	gmsh \
 	qtcreator \
 	coffeescript \
 	openmpi-bin \
@@ -97,12 +88,6 @@ all: compilation
 
 compilation: sym_links
 	which metil_comp || make -C software_library/Metil install
-	make -C software_library/ScwalPlugins/GmshPlugin
-	# 	make -C software_library/ScwalPlugins/Scills3DPlugin
-	# 	make -C software_library/ScwalPlugins/Scult3DPlugin
-	make -C software_library/ScwalPlugins/CorreliPlugin
-	make -C software_library/EcosystemScience Soja_javascripts
-	
 	
 soda_server: compilation
 	make -C Javascript mechanic
