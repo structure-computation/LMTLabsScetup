@@ -74,6 +74,7 @@ LD = \
 	libxi-dev \
 	libxmu-dev \
 	freeglut3-dev \
+	libcurl4-openssl-dev \
 	
 	
 SHELL = /bin/bash
