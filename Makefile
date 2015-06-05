@@ -13,6 +13,7 @@ LIBRARIES = \
 	Sipe \
 	PrepArg \
 	LMTLabs \
+	ScwalPlugins \
 	LMTPlugins
 	
 BRANCHES = \
@@ -74,17 +75,13 @@ LD = \
 	libxi-dev \
 	libxmu-dev \
 	freeglut3-dev \
+	libcurl4-openssl-dev \
 	
 	
 SHELL = /bin/bash
 	
 all: compilation
-	which easy_install || sudo apt-get install easy_install
-	python -c "import ramona" || sudo easy_install ramona
-	# ==========================================================
-	# Lancement de ramona -> http://localhost:5588
-	# ==========================================================
-	./ram.py server
+
 
 compilation: sym_links
 	which metil_comp || make -C software_library/Metil install
